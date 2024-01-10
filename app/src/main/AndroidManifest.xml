@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -11,10 +14,35 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.GiftCon_APP"
-        tools:targetApi="31">
+        tools:targetApi="34">
+        <activity
+            android:name=".Setting"
+            android:exported="false" />
+            <!-- 알림을 받기 위한 receiver등록 -->
+            <receiver
+                android:name=".NotificationReceiver"
+                android:enabled="true"
+                android:exported="false">
+                <intent-filter>
+                    <action android:name="android.intent.action.BOOT_COMPLETED" />
+                </intent-filter>
+            </receiver>
+        <activity
+            android:name=".conCheckView"
+            android:exported="false" />
+        <activity
+            android:name=".conCheck"
+            android:exported="false" />
+        <activity
+            android:name=".conReg"
+            android:exported="false" />
+        <activity
+            android:name=".MainMeue"
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
