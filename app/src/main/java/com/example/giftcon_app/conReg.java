@@ -118,6 +118,7 @@ public class conReg extends AppCompatActivity {
         regconEnd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 //DB로 쓰기
                 //DB 생성
                 DB.DbOpenHelper mDbOpenHelper = new DB.DbOpenHelper(getApplicationContext());
@@ -130,8 +131,16 @@ public class conReg extends AppCompatActivity {
                 int requestCode;//코드 저장용 변수
                 int ConNum= iCursor.getCount(); //콘 개수 받아오기
                 if(ConNum>=1) { //저장 된 콘이 있을 경우 가장 최근에 저장 된 콘의 코드 받아온다.
+                    iCursor.moveToLast();
+                    requestCode= Integer.parseInt(iCursor.getString(3));
                     iCursor.moveToFirst();
-                    requestCode= Integer.parseInt(iCursor.getString(1));
+                    for(int i=0;i<ConNum;i++){ //리퀘스트 코드가 겹치지 않게 한다.
+                        if(Integer.parseInt(iCursor.getString(3))==requestCode){
+                            requestCode++;
+                        }
+                        iCursor.moveToNext();
+                    }
+
                 }
                 else {
                     //저장된 값이 없을 경우 첫번째 코드는 0
@@ -167,13 +176,28 @@ public class conReg extends AppCompatActivity {
 
                 //DB에 쓰기
                 try {
-                    if (Name != null && Date != null && String.valueOf(Imguri[0])!="null") { //모든 값이 입력 되어야만 실행
+                    if (Name != null && Date != null && Date.equals("TextView")==false && String.valueOf(Imguri[0])!="null") { //모든 값이 입력 되어야만 실행
                             try {
+                                Log.d("erro",Name);
                                 NotificationSetting N=new NotificationSetting();
-                                N.setNotice(Date,Timeset,getApplicationContext(),alarmManager,requestCode); //알림 설정 yyyy-MM-dd HH:mm:ss 구성
                                 DB.DbOpenHelper.insertColumn(Name, Date, String.valueOf(Imguri[0]), String.valueOf(requestCode)); //DB 저장
+                                Log.d("erro","저장은 성공");
+                                N.setNotice(Date,Timeset,getApplicationContext(),alarmManager,requestCode); //알림 설정 yyyy-MM-dd HH:mm:ss 구성
+                                Log.d("erro","알림은 성공");
+
+                                //이미지 파일로 저장
+                                File ConFile= new File();
+                                Log.d("erro","은uuu 성공");
+                                String StringImguri= String.valueOf(Imguri[0]);
+                                String result = StringImguri.substring(StringImguri.lastIndexOf("%")+1);
+
+                                ConFile.FileWrite(getApplicationContext(),result,Imguri[0]);
+                                Log.d("erro","은 성공");
+                                ConFile.FileRead(getApplicationContext(),result);
+
+
                             } catch (Exception e) {
-                                Log.d("erro", String.valueOf(e));
+                                Log.d("erro", String.valueOf(e)+" / 저장 중 오류");
                             }
                     }
                     else {
