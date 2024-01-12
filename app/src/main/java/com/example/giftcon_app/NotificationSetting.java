@@ -19,13 +19,14 @@ public class NotificationSetting {
     //알람매니저에 알람등록 처리
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    public void setNotice(String alarmDateValue, String alarmTimeValue ,Context C, AlarmManager alarmManager,int requestCode) {
+    public void setNotice(String alarmDateValue, String alarmTimeValue ,Context C, AlarmManager alarmManager,int requestCode, String conName) {
 
         //알람을 수신할 수 있도록 하는 리시버로 인텐트 요청
         Intent receiverIntent = new Intent(C, NotificationReceiver.class);
-        receiverIntent.putExtra("content", "알람등록 테스트");
+        receiverIntent.putExtra("content", conName+"의 유효기간이 오늘까지 입니다!");
+        receiverIntent.putExtra("requestCode", String.valueOf(requestCode));
 
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(C, requestCode, receiverIntent, PendingIntent.FLAG_UPDATE_CURRENT); //리퀘스트 코드 수정 필요
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(C, requestCode, receiverIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 
 
         //등록한 알람날짜 포맷을 밀리초로 변경한기 위한 코드

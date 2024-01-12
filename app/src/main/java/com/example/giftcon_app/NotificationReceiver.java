@@ -32,6 +32,8 @@ public class NotificationReceiver extends BroadcastReceiver {
         Log.e(TAG, "onReceive 알람이 들어옴!!");
 
         String contentValue = intent.getStringExtra("content");
+        String requestCodeString =intent.getStringExtra("requestCode");
+        int requestCode= Integer.parseInt(requestCodeString);
         Log.e(TAG, "onReceive contentValue값 확인 : " + contentValue);
 
         builder = null;
@@ -72,7 +74,7 @@ public class NotificationReceiver extends BroadcastReceiver {
         Notification notification = builder.build();
 
         //NotificationManager를 이용하여 푸시 알림 보내기
-        manager.notify(1,notification);
+        manager.notify(requestCode,notification);
 
     }
 }

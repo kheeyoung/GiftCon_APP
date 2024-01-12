@@ -187,7 +187,7 @@ public class conReg extends AppCompatActivity {
                                 NotificationSetting N=new NotificationSetting();
                                 DB.DbOpenHelper.insertColumn(Name, Date, result, String.valueOf(requestCode)); //DB 저장
 
-                                N.setNotice(Date,Timeset,getApplicationContext(),alarmManager,requestCode); //알림 설정 yyyy-MM-dd HH:mm:ss 구성
+                                N.setNotice(Date,Timeset,getApplicationContext(),alarmManager,requestCode,Name); //알림 설정 yyyy-MM-dd HH:mm:ss 구성
 
                                 ConFile.FileWrite(getApplicationContext(),result,Imguri[0]);
 
