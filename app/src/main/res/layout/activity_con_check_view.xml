@@ -58,12 +58,6 @@
                 android:layout_weight="1"
                 android:text="TextView" />
 
-            <Switch
-                android:id="@+id/switch3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="알림설정" />
         </LinearLayout>
 
         <LinearLayout

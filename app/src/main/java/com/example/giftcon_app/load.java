@@ -18,7 +18,7 @@ public class load {
         this.pagenum=pagenum;
     }
     //로딩 기능
-    public void loadCon(int ConNum, int Btunum, ImageButton button, Cursor C, Context TrackerService){ //전체 콘 개수, 페이지 넘버,버튼 넘버,이미지 버튼,커서, 인텐트
+    public void loadCon(int ConNum, int Btunum, ImageButton button, Cursor C, Context TrackerService,DB.DbOpenHelper mDbOpenHelper){ //전체 콘 개수, 페이지 넘버,버튼 넘버,이미지 버튼,커서, 인텐트 , 닫을 DB
         try {
             if (ConNum >= Btunum + pagenum && pagenum >= 0) {
                 int connum=Btunum + (pagenum * 9) - 1;
@@ -46,6 +46,7 @@ public class load {
                         intent.putExtra("ConNum",String.valueOf(connum));
                         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         TrackerService.startActivity(intent);
+                        mDbOpenHelper.close();
 
                     }
                 });

@@ -50,15 +50,15 @@ public class conCheck extends AppCompatActivity {
         //load 생성자
         load load=new load(0);
 
-        load.loadCon(ConNum,1,imageButton1,iCursor,getApplicationContext());
-        load.loadCon(ConNum,2,imageButton2,iCursor,getApplicationContext());
-        load.loadCon(ConNum,3,imageButton3,iCursor,getApplicationContext());
-        load.loadCon(ConNum,4,imageButton4,iCursor,getApplicationContext());
-        load.loadCon(ConNum,5,imageButton5,iCursor,getApplicationContext());
-        load.loadCon(ConNum,6,imageButton6,iCursor,getApplicationContext());
-        load.loadCon(ConNum,7,imageButton7,iCursor,getApplicationContext());
-        load.loadCon(ConNum,8,imageButton8,iCursor,getApplicationContext());
-        load.loadCon(ConNum,9,imageButton9,iCursor,getApplicationContext());
+        load.loadCon(ConNum,1,imageButton1,iCursor,getApplicationContext(),mDbOpenHelper);
+        load.loadCon(ConNum,2,imageButton2,iCursor,getApplicationContext(),mDbOpenHelper);
+        load.loadCon(ConNum,3,imageButton3,iCursor,getApplicationContext(),mDbOpenHelper);
+        load.loadCon(ConNum,4,imageButton4,iCursor,getApplicationContext(),mDbOpenHelper);
+        load.loadCon(ConNum,5,imageButton5,iCursor,getApplicationContext(),mDbOpenHelper);
+        load.loadCon(ConNum,6,imageButton6,iCursor,getApplicationContext(),mDbOpenHelper);
+        load.loadCon(ConNum,7,imageButton7,iCursor,getApplicationContext(),mDbOpenHelper);
+        load.loadCon(ConNum,8,imageButton8,iCursor,getApplicationContext(),mDbOpenHelper);
+        load.loadCon(ConNum,9,imageButton9,iCursor,getApplicationContext(),mDbOpenHelper);
 
         //이전 버튼
         Button backBut=(Button) findViewById(R.id.back);
@@ -66,15 +66,15 @@ public class conCheck extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 load.setPagenum(-1);
-                load.loadCon(ConNum,1,imageButton1,iCursor,getApplicationContext());
-                load.loadCon(ConNum,2,imageButton2,iCursor,getApplicationContext());
-                load.loadCon(ConNum,3,imageButton3,iCursor,getApplicationContext());
-                load.loadCon(ConNum,4,imageButton4,iCursor,getApplicationContext());
-                load.loadCon(ConNum,5,imageButton5,iCursor,getApplicationContext());
-                load.loadCon(ConNum,6,imageButton6,iCursor,getApplicationContext());
-                load.loadCon(ConNum,7,imageButton7,iCursor,getApplicationContext());
-                load.loadCon(ConNum,8,imageButton8,iCursor,getApplicationContext());
-                load.loadCon(ConNum,9,imageButton9,iCursor,getApplicationContext());
+                load.loadCon(ConNum,1,imageButton1,iCursor,getApplicationContext(),mDbOpenHelper);
+                load.loadCon(ConNum,2,imageButton2,iCursor,getApplicationContext(),mDbOpenHelper);
+                load.loadCon(ConNum,3,imageButton3,iCursor,getApplicationContext(),mDbOpenHelper);
+                load.loadCon(ConNum,4,imageButton4,iCursor,getApplicationContext(),mDbOpenHelper);
+                load.loadCon(ConNum,5,imageButton5,iCursor,getApplicationContext(),mDbOpenHelper);
+                load.loadCon(ConNum,6,imageButton6,iCursor,getApplicationContext(),mDbOpenHelper);
+                load.loadCon(ConNum,7,imageButton7,iCursor,getApplicationContext(),mDbOpenHelper);
+                load.loadCon(ConNum,8,imageButton8,iCursor,getApplicationContext(),mDbOpenHelper);
+                load.loadCon(ConNum,9,imageButton9,iCursor,getApplicationContext(),mDbOpenHelper);
             }
         });
         //이후 버튼
@@ -83,29 +83,24 @@ public class conCheck extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 load.setPagenum(+1);
-                load.loadCon(ConNum,1,imageButton1,iCursor,getApplicationContext());
-                load.loadCon(ConNum,2,imageButton2,iCursor,getApplicationContext());
-                load.loadCon(ConNum,3,imageButton3,iCursor,getApplicationContext());
-                load.loadCon(ConNum,4,imageButton4,iCursor,getApplicationContext());
-                load.loadCon(ConNum,5,imageButton5,iCursor,getApplicationContext());
-                load.loadCon(ConNum,6,imageButton6,iCursor,getApplicationContext());
-                load.loadCon(ConNum,7,imageButton7,iCursor,getApplicationContext());
-                load.loadCon(ConNum,8,imageButton8,iCursor,getApplicationContext());
-                load.loadCon(ConNum,9,imageButton9,iCursor,getApplicationContext());
+                load.loadCon(ConNum,1,imageButton1,iCursor,getApplicationContext(),mDbOpenHelper);
+                load.loadCon(ConNum,2,imageButton2,iCursor,getApplicationContext(),mDbOpenHelper);
+                load.loadCon(ConNum,3,imageButton3,iCursor,getApplicationContext(),mDbOpenHelper);
+                load.loadCon(ConNum,4,imageButton4,iCursor,getApplicationContext(),mDbOpenHelper);
+                load.loadCon(ConNum,5,imageButton5,iCursor,getApplicationContext(),mDbOpenHelper);
+                load.loadCon(ConNum,6,imageButton6,iCursor,getApplicationContext(),mDbOpenHelper);
+                load.loadCon(ConNum,7,imageButton7,iCursor,getApplicationContext(),mDbOpenHelper);
+                load.loadCon(ConNum,8,imageButton8,iCursor,getApplicationContext(),mDbOpenHelper);
+                load.loadCon(ConNum,9,imageButton9,iCursor,getApplicationContext(),mDbOpenHelper);
 
 
             }
         });
 
-        TitleConCheck.setText(iCursor.getColumnName(1));
-
 
 
         //iCursor.close();
         //mDbOpenHelper.close();
-
-
-
 
 
     }

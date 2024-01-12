@@ -27,24 +27,9 @@
         android:layout_marginStart="160dp"
         android:layout_marginTop="35dp"
         android:layout_marginEnd="160dp"
-        android:layout_marginBottom="45dp"
         android:text="콘 보기"
-        app:layout_constraintBottom_toTopOf="@+id/setting"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/conreg" />
 
-    <Button
-        android:id="@+id/setting"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="160dp"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="163dp"
-        android:layout_marginBottom="327dp"
-        android:text="설정"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/viewcon" />
 </androidx.constraintlayout.widget.ConstraintLayout>

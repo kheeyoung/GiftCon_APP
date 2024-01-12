@@ -1,30 +1,28 @@
 package com.example.giftcon_app;
 
-import android.content.ContentResolver;
+
 import android.content.Context;
-import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.ImageDecoder;
 import android.net.Uri;
 import android.os.Build;
-import android.os.Environment;
 import android.provider.MediaStore;
 import android.util.Base64;
 import android.util.Log;
-
 import java.io.ByteArrayOutputStream;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.OutputStream;
+
 
 public class File {
 
     public void File(){}
+    public void File(String filepath){
+
+    }
 
     //스트링->비트맵
     public static Bitmap StringToBitmap(String encodedString) {
@@ -101,5 +99,11 @@ public class File {
         }
         return readString;
     }
+    public void delete(String path){
+        java.io.File file = new java.io.File(path);
+        file.delete();
+    }
+
+
 
 }

@@ -66,8 +66,16 @@ public class conCheckView extends AppCompatActivity {
                 //DB 삭제
                 mDbOpenHelper.deleteColumn(ID);
                 //알림 삭제
-                //NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-                //notificationManager.cancel(Integer.parseInt(requestCode)); // cancel(알림 특정 id)
+                NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+                notificationManager.cancel(Integer.parseInt(requestCode)); // cancel(알림 특정 id)
+                //파일 삭제
+                try{
+                    file.delete("/data/data/com.example.giftcon_app/files"+uri);
+                }
+                catch (Exception e){}
+
+                mDbOpenHelper.close();
+                iCursor.close();
                 Intent intent =new Intent(getApplicationContext(),conCheck.class);
                 startActivity(intent);
 

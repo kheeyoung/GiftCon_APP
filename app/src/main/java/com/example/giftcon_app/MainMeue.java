@@ -33,15 +33,6 @@ public class MainMeue extends AppCompatActivity {
             }
         });
 
-        Button Setting=(Button) findViewById(R.id.setting);
-        Setting.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent =new Intent(getApplicationContext(),Setting.class);
-                startActivity(intent);
-            }
-        });
-
 
     }
 }
