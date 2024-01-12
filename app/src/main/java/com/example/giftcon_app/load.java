@@ -21,7 +21,8 @@ public class load {
     public void loadCon(int ConNum, int Btunum, ImageButton button, Cursor C, Context TrackerService){ //전체 콘 개수, 페이지 넘버,버튼 넘버,이미지 버튼,커서, 인텐트
         try {
             if (ConNum >= Btunum + pagenum && pagenum >= 0) {
-                C.moveToPosition(Btunum + (pagenum * 9) - 1);
+                int connum=Btunum + (pagenum * 9) - 1;
+                C.moveToPosition(connum);
                 //정보 받아오기
                 String name=C.getString(1);
                 String date=C.getString(2);
@@ -42,6 +43,7 @@ public class load {
                         intent.putExtra("Name", name);
                         intent.putExtra("Date", date);
                         intent.putExtra("URI", uri);
+                        intent.putExtra("ConNum",String.valueOf(connum));
                         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         TrackerService.startActivity(intent);
 

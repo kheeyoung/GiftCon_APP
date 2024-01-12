@@ -1,9 +1,14 @@
 package com.example.giftcon_app;
 
+import android.app.NotificationManager;
+import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -19,6 +24,7 @@ public class conCheckView extends AppCompatActivity {
         String Name=getIntent().getStringExtra("Name");
         String Date=getIntent().getStringExtra("Date");
         String bitmapString=getIntent().getStringExtra("URI");
+        String ConNum=getIntent().getStringExtra("ConNum");
 
         TextView NameTxt =(TextView) findViewById(R.id.Name);
         TextView DateTxt =(TextView) findViewById(R.id.DATE);
@@ -36,11 +42,37 @@ public class conCheckView extends AppCompatActivity {
             image.setImageBitmap(bitmap);
         }
         catch (Exception e){
-            Log.d("adsfhoajfsdljkalsd",bitmapString+"오");
-            Log.d("adsfhoajfsdljkalsd","여기다다다다다ㅏㄷ");
-
         }
 
+        //삭제 기능
+        Button deleteBtu =(Button) findViewById(R.id.deleteBtu);
+        deleteBtu.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //DB 열기
+                DB.DbOpenHelper mDbOpenHelper = new DB.DbOpenHelper(getApplicationContext());
+                mDbOpenHelper.open();
+                mDbOpenHelper.create();
+                // 커서 설정
+                Cursor iCursor = mDbOpenHelper.sortColumns();
+                iCursor.moveToPosition(Integer.parseInt(ConNum));
+                //정보 받아오기
+                int ID=iCursor.getInt(0);
+                String name=iCursor.getString(1);
+                String date=iCursor.getString(2);
+                String requestCode=iCursor.getString(3);
+                String uri=iCursor.getString(4);
+
+                //DB 삭제
+                mDbOpenHelper.deleteColumn(ID);
+                //알림 삭제
+                //NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+                //notificationManager.cancel(Integer.parseInt(requestCode)); // cancel(알림 특정 id)
+                Intent intent =new Intent(getApplicationContext(),conCheck.class);
+                startActivity(intent);
+
+            }
+        });
 
     }
 }

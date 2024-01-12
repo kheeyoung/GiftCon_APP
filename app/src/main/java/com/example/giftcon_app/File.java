@@ -78,11 +78,6 @@ public class File {
         }
     }
 
-
-
-
-    
-
     public String FileRead(Context context,String filename){
         String readString=null;
         try{
@@ -98,7 +93,6 @@ public class File {
             }
             // 바이트를 문자열로 변환한다.
             readString = sb.toString();
-            Log.i("LOG_TAG111", "Read string: " + readString);
 
         }catch(IOException e){
 

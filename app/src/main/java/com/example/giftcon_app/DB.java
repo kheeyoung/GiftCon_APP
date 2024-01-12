@@ -89,6 +89,11 @@ public class DB {
         }
 
         //데이터 가져오기 (칼럼 가져오기)
+        // ID
+        public Cursor sortColumnID(){
+            Cursor c = mDB.rawQuery( "SELECT _id FROM usertable;", null);
+            return c;
+        }
         // 이름
         public Cursor sortColumnName(){
             Cursor c = mDB.rawQuery( "SELECT name FROM usertable;", null);
