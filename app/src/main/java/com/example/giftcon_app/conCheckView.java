@@ -1,7 +1,9 @@
 package com.example.giftcon_app;
 
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -16,7 +18,7 @@ public class conCheckView extends AppCompatActivity {
         //인텐트에서 데이터 받아오기
         String Name=getIntent().getStringExtra("Name");
         String Date=getIntent().getStringExtra("Date");
-        String URI=getIntent().getStringExtra("URI");
+        String bitmapString=getIntent().getStringExtra("URI");
 
         TextView NameTxt =(TextView) findViewById(R.id.Name);
         TextView DateTxt =(TextView) findViewById(R.id.DATE);
@@ -24,11 +26,21 @@ public class conCheckView extends AppCompatActivity {
 
         NameTxt.setText(Name);
         DateTxt.setText(Date);
-        EtcTxt.setText(URI);
+        EtcTxt.setText(bitmapString);
+        File file =new File();
 
-        //이미지 설정
-        ImageView image=(ImageView) findViewById(R.id.imageView);
-        image.setImageURI(Uri.parse(URI));
+        try {
+            //이미지 설정
+            ImageView image=(ImageView) findViewById(R.id.imageView);
+            Bitmap bitmap =file.StringToBitmap(file.FileRead(getApplicationContext(),bitmapString));
+            image.setImageBitmap(bitmap);
+        }
+        catch (Exception e){
+            Log.d("adsfhoajfsdljkalsd",bitmapString+"오");
+            Log.d("adsfhoajfsdljkalsd","여기다다다다다ㅏㄷ");
+
+        }
+
 
     }
 }

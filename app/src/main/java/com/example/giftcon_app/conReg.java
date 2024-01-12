@@ -178,22 +178,19 @@ public class conReg extends AppCompatActivity {
                 try {
                     if (Name != null && Date != null && Date.equals("TextView")==false && String.valueOf(Imguri[0])!="null") { //모든 값이 입력 되어야만 실행
                             try {
-                                Log.d("erro",Name);
-                                NotificationSetting N=new NotificationSetting();
-                                DB.DbOpenHelper.insertColumn(Name, Date, String.valueOf(Imguri[0]), String.valueOf(requestCode)); //DB 저장
-                                Log.d("erro","저장은 성공");
-                                N.setNotice(Date,Timeset,getApplicationContext(),alarmManager,requestCode); //알림 설정 yyyy-MM-dd HH:mm:ss 구성
-                                Log.d("erro","알림은 성공");
-
                                 //이미지 파일로 저장
                                 File ConFile= new File();
-                                Log.d("erro","은uuu 성공");
+
                                 String StringImguri= String.valueOf(Imguri[0]);
                                 String result = StringImguri.substring(StringImguri.lastIndexOf("%")+1);
 
+                                NotificationSetting N=new NotificationSetting();
+                                DB.DbOpenHelper.insertColumn(Name, Date, result, String.valueOf(requestCode)); //DB 저장
+
+                                N.setNotice(Date,Timeset,getApplicationContext(),alarmManager,requestCode); //알림 설정 yyyy-MM-dd HH:mm:ss 구성
+
                                 ConFile.FileWrite(getApplicationContext(),result,Imguri[0]);
-                                Log.d("erro","은 성공");
-                                ConFile.FileRead(getApplicationContext(),result);
+
 
 
                             } catch (Exception e) {

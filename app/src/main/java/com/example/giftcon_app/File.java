@@ -10,8 +10,10 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.util.Base64;
 import android.util.Log;
 
+import java.io.ByteArrayOutputStream;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -23,6 +25,29 @@ import java.io.OutputStream;
 public class File {
 
     public void File(){}
+
+    //스트링->비트맵
+    public static Bitmap StringToBitmap(String encodedString) {
+        try {
+            byte[] encodeByte = Base64.decode(encodedString, Base64.DEFAULT);
+            Bitmap bitmap = BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.length);
+            return bitmap;
+        } catch (Exception e) {
+            e.getMessage();
+            return null;
+        }
+    }
+
+    //비트맵->스트링
+    public static String BitmapToString(Bitmap bitmap) {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG, 70, baos);
+        byte[] bytes = baos.toByteArray();
+        String temp = Base64.encodeToString(bytes, Base64.DEFAULT);
+        return temp;
+    }
+
+    //파일 저장
     public void FileWrite(Context context, String StringUri, Uri imageUri){
         //파일에 저장할 비트맵 준비
         Bitmap bitmap = null;
@@ -44,7 +69,7 @@ public class File {
             //파일 오픈 ( 파일명, 가시성 모드 )
             FileOutputStream fos = context.openFileOutput(fileName, Context.MODE_PRIVATE);
             //파일 기록
-            fos.write(bitmap.getByteCount());
+            fos.write(BitmapToString(bitmap).getBytes());
             //파일 close
             fos.close();
         }catch(IOException e){
@@ -52,9 +77,14 @@ public class File {
             e.printStackTrace();
         }
     }
+
+
+
+
     
 
-    public void FileRead(Context context,String filename){
+    public String FileRead(Context context,String filename){
+        String readString=null;
         try{
             FileInputStream fis = context.openFileInput(filename);
             InputStreamReader isr = new InputStreamReader(fis);
@@ -67,14 +97,15 @@ public class File {
                 sb.append(inputBuffer, 0, end);
             }
             // 바이트를 문자열로 변환한다.
-            String readString = sb.toString();
-            Log.i("LOG_TAG", "Read string: " + readString);
+            readString = sb.toString();
+            Log.i("LOG_TAG111", "Read string: " + readString);
 
         }catch(IOException e){
 
             e.printStackTrace();
 
         }
+        return readString;
     }
 
 }

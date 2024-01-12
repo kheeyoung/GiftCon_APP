@@ -3,6 +3,7 @@ package com.example.giftcon_app;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.view.View;
 import android.widget.ImageButton;
@@ -24,8 +25,13 @@ public class load {
                 //정보 받아오기
                 String name=C.getString(1);
                 String date=C.getString(2);
-                String uri=C.getString(3);
-                button.setImageURI(Uri.parse(uri));
+                String uri=C.getString(4);
+
+                //파일 열어서 비트맵 가져오기
+                File file = new File();
+                Bitmap bitmap =file.StringToBitmap(file.FileRead(TrackerService,uri));
+
+                button.setImageBitmap(bitmap);
                 button.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
