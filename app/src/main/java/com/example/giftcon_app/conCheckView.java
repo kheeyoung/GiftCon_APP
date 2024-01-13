@@ -28,11 +28,9 @@ public class conCheckView extends AppCompatActivity {
 
         TextView NameTxt =(TextView) findViewById(R.id.Name);
         TextView DateTxt =(TextView) findViewById(R.id.DATE);
-        TextView EtcTxt =(TextView) findViewById(R.id.Etc);
 
         NameTxt.setText(Name);
         DateTxt.setText(Date);
-        EtcTxt.setText(bitmapString);
         File file =new File();
 
         try {

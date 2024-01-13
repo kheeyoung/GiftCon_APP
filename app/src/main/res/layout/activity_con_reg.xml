@@ -31,6 +31,7 @@
             android:id="@+id/conimg"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="15dp"
             android:src="@drawable/images"
             android:onClick="ConImgUpLoad"
             android:layout_weight="3"
@@ -53,14 +54,18 @@
         <TextView
             android:id="@+id/conname"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_margin="15dp"
             android:layout_weight="5"
-            android:text="이름: " />
+            android:text="이름: "
+            android:textSize="16sp" />
 
         <EditText
             android:id="@+id/nameTxt"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="10dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:ems="10"
             android:inputType="text"
@@ -81,7 +86,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal"
-            android:layout_weight="5">
+            android:layout_weight="5"
+            android:layout_margin="15dp">
 
             <TextView
                 android:id="@+id/textView2"
@@ -112,6 +118,7 @@
 
     <Button
         android:id="@+id/regconEnd"
+        android:layout_margin="15dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="기프티콘 등록하기" />

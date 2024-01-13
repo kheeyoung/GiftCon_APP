@@ -10,20 +10,22 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="10"
+        android:layout_weight="9.5"
         android:orientation="vertical">
 
         <TextView
             android:id="@+id/TitleConCheck"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_margin="15dp"
             android:text="콘 보기" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1"
+        android:layout_weight="1.75"
+        android:layout_margin="15dp"
         android:orientation="vertical">
 
         <LinearLayout
@@ -35,21 +37,21 @@
             <ImageButton
                 android:id="@+id/imageButton1"
                 android:layout_width="20dp"
-                android:layout_height="200dp"
+                android:layout_height="170dp"
                 android:layout_weight="1"
                 android:src="@android:drawable/btn_star" />
 
             <ImageButton
                 android:id="@+id/imageButton2"
                 android:layout_width="20dp"
-                android:layout_height="200dp"
+                android:layout_height="170dp"
                 android:layout_weight="1"
                 android:src="@android:drawable/btn_star" />
 
             <ImageButton
                 android:id="@+id/imageButton3"
                 android:layout_width="20dp"
-                android:layout_height="200dp"
+                android:layout_height="170dp"
                 android:layout_weight="1"
                 android:src="@android:drawable/btn_star" />
         </LinearLayout>
@@ -63,21 +65,21 @@
             <ImageButton
                 android:id="@+id/imageButton4"
                 android:layout_width="20dp"
-                android:layout_height="200dp"
+                android:layout_height="170dp"
                 android:layout_weight="1"
                 android:src="@android:drawable/btn_star" />
 
             <ImageButton
                 android:id="@+id/imageButton5"
                 android:layout_width="20dp"
-                android:layout_height="200dp"
+                android:layout_height="170dp"
                 android:layout_weight="1"
                 android:src="@android:drawable/btn_star" />
 
             <ImageButton
                 android:id="@+id/imageButton6"
                 android:layout_width="20dp"
-                android:layout_height="200dp"
+                android:layout_height="170dp"
                 android:layout_weight="1"
                 android:src="@android:drawable/btn_star" />
         </LinearLayout>
@@ -91,7 +93,7 @@
             <ImageButton
                 android:id="@+id/imageButton7"
                 android:layout_width="20dp"
-                android:layout_height="200dp"
+                android:layout_height="170dp"
                 android:layout_weight="1"
                 android:src="@android:drawable/btn_star"
                 />
@@ -99,14 +101,14 @@
             <ImageButton
                 android:id="@+id/imageButton8"
                 android:layout_width="20dp"
-                android:layout_height="200dp"
+                android:layout_height="170dp"
                 android:layout_weight="1"
                 android:src="@android:drawable/btn_star" />
 
             <ImageButton
                 android:id="@+id/imageButton9"
                 android:layout_width="20dp"
-                android:layout_height="200dp"
+                android:layout_height="170dp"
                 android:layout_weight="1"
                 android:src="@android:drawable/btn_star" />
         </LinearLayout>
@@ -115,20 +117,23 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="10"
+        android:layout_weight="9.5"
+        android:layout_marginBottom="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
         android:orientation="horizontal">
 
         <Button
             android:id="@+id/back"
-            android:layout_width="10dp"
-            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="이전 페이지" />
 
         <Button
             android:id="@+id/go"
-            android:layout_width="10dp"
-            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="다음 페이지" />
     </LinearLayout>
