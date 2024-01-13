@@ -5,8 +5,12 @@
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
+        android:networkSecurityConfig="@xml/network_security_config"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -17,17 +21,20 @@
         android:theme="@style/Theme.GiftCon_APP"
         tools:targetApi="34">
         <activity
-            android:name=".Setting"
+            android:name=".kakaoMap"
             android:exported="false" />
-            <!-- 알림을 받기 위한 receiver등록 -->
-            <receiver
-                android:name=".NotificationReceiver"
-                android:enabled="true"
-                android:exported="false">
-                <intent-filter>
-                    <action android:name="android.intent.action.BOOT_COMPLETED" />
-                </intent-filter>
-            </receiver>
+        <activity
+            android:name=".Setting"
+            android:exported="false" /> <!-- 알림을 받기 위한 receiver등록 -->
+        <receiver
+            android:name=".NotificationReceiver"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
         <activity
             android:name=".conCheckView"
             android:exported="false" />
@@ -43,13 +50,14 @@
         <activity
             android:name=".MainActivity"
             android:exported="true">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data android:name="com.kakao.sdk.AppKey" android:value="9c15a7ed87dee7767d3ac6b06c21b33a"/>
     </application>
 
 </manifest>

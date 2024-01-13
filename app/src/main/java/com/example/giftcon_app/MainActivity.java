@@ -20,6 +20,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent =new Intent(getApplicationContext(),MainMeue.class);
                 startActivity(intent);
+                key Key=new key();
+                //Key.getHashKey(getApplicationContext());
             }
         });
     }

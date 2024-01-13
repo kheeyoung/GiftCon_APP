@@ -80,5 +80,16 @@ public class conCheckView extends AppCompatActivity {
             }
         });
 
+        //맵 보여주기
+        Button map =(Button) findViewById(R.id.map);
+        map.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent =new Intent(getApplicationContext(),kakaoMap.class);
+                startActivity(intent);
+            }
+        });
+
     }
+
 }

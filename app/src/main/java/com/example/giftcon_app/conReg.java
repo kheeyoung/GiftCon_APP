@@ -182,7 +182,7 @@ public class conReg extends AppCompatActivity {
                                 File ConFile= new File();
 
                                 String StringImguri= String.valueOf(Imguri[0]);
-                                String result = StringImguri.substring(StringImguri.lastIndexOf("%")+1);
+                                String result = StringImguri.substring(StringImguri.lastIndexOf("/")+1);
 
                                 NotificationSetting N=new NotificationSetting();
                                 DB.DbOpenHelper.insertColumn(Name, Date, result, String.valueOf(requestCode)); //DB 저장

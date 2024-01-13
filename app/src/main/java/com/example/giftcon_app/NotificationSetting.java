@@ -26,7 +26,7 @@ public class NotificationSetting {
         receiverIntent.putExtra("content", conName+"의 유효기간이 오늘까지 입니다!");
         receiverIntent.putExtra("requestCode", String.valueOf(requestCode));
 
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(C, requestCode, receiverIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(C, requestCode, receiverIntent, PendingIntent.FLAG_IMMUTABLE);
 
 
         //등록한 알람날짜 포맷을 밀리초로 변경한기 위한 코드
